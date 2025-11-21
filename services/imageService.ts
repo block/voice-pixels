@@ -18,9 +18,11 @@ export const generateImage = async (
   referenceImageBase64?: string,
   config: ImageGenerationConfig = {}
 ): Promise<string> => {
-  if (!process.env.API_KEY) throw new Error("API Key missing");
+  const apiKey = localStorage.getItem('gemini_api_key');
+  if (!apiKey) throw new Error("API Key missing. Please set your API key in settings.");
   
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  // Use v1alpha API version for media_resolution support
+  const ai = new GoogleGenAI({ apiKey, apiVersion: 'v1alpha' });
   const parts: any[] = [{ text: prompt }];
 
   if (referenceImageBase64) {
@@ -28,13 +30,19 @@ export const generateImage = async (
       inlineData: {
         mimeType: 'image/png', // Defaulting to PNG, model is flexible
         data: cleanBase64(referenceImageBase64)
+      },
+      // Use high resolution for reference images (1120 tokens)
+      mediaResolution: {
+        level: 'media_resolution_high'
       }
     });
   }
   
-  // Using 'gemini-3-pro-image-preview' (Nano Banana Pro)
+  // Get selected generation model from localStorage
+  const generationModel = localStorage.getItem('gemini_generation_model') || 'imagen-3.0-generate-002';
+  
   const response = await ai.models.generateContent({
-    model: 'gemini-3-pro-image-preview',
+    model: generationModel,
     contents: {
       parts: parts
     },
@@ -61,20 +69,28 @@ export const editImage = async (
   instruction: string,
   config: ImageGenerationConfig = {}
 ): Promise<string> => {
-  if (!process.env.API_KEY) throw new Error("API Key missing");
+  const apiKey = localStorage.getItem('gemini_api_key');
+  if (!apiKey) throw new Error("API Key missing. Please set your API key in settings.");
   
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  // Use v1alpha API version for media_resolution support
+  const ai = new GoogleGenAI({ apiKey, apiVersion: 'v1alpha' });
   const rawBase64 = cleanBase64(base64Image);
 
-  // Using 'gemini-3-pro-image-preview' (Nano Banana Pro) for editing
+  // Get selected editing model from localStorage
+  const editingModel = localStorage.getItem('gemini_editing_model') || 'gemini-3-pro-image-preview';
+  
   const response = await ai.models.generateContent({
-    model: 'gemini-3-pro-image-preview',
+    model: editingModel,
     contents: {
       parts: [
         {
           inlineData: {
             mimeType: 'image/png', 
             data: rawBase64
+          },
+          // Use high resolution for better editing quality (1120 tokens)
+          mediaResolution: {
+            level: 'media_resolution_high'
           }
         },
         { text: instruction }
