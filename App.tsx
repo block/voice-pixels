@@ -764,13 +764,10 @@ const App: React.FC = () => {
 
           <div className="relative bg-white/5 backdrop-blur-2xl border border-white/10 p-8 rounded-3xl shadow-2xl">
             <div className="flex flex-col items-center text-center mb-8">
-              <div className="w-16 h-16 bg-gradient-to-tr from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/20 mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-white">
-                  <path fillRule="evenodd" d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 0 1 .75.75c0 5.056-2.383 9.555-6.084 12.436h.008c.36.003.714.014 1.064.032a.75.75 0 0 1 .694.864 12.02 12.02 0 0 1-9.324 9.324.75.75 0 0 1-.864-.694 22.65 22.65 0 0 1-.032-1.064V22.5a.75.75 0 0 1-.75-.75c-2.881 0-5.438-.918-7.555-2.486l.445-.445a3 3 0 0 1 4.242 0l1.575 1.575a.75.75 0 0 1 0 1.06l-2.533 2.533a20.84 20.84 0 0 0 6.525 1.108c.08-.287.168-.572.262-.854l.84-2.52a2.25 2.25 0 0 1 2.848-1.424l2.52.84c.282.094.567.182.854.262A20.84 20.84 0 0 0 21.643 14.8l-2.533-2.533a.75.75 0 0 1 1.06-1.06l1.575 1.575a3 3 0 0 1 0 4.242l-.445.445C19.731 9.994 17.175 7.5 14.295 7.5h-.008a22.65 22.65 0 0 1-1.064-.032v-.008Zm-4.25 3.22a.75.75 0 0 0-1.5 0v.01c0 2.978.63 5.815 1.768 8.416l2.16-2.16a.75.75 0 0 1 1.06 1.06l-2.16 2.16A18.73 18.73 0 0 1 4.5 12v-.008a.75.75 0 0 0-.75-.75h-.005a.75.75 0 0 0-.745.75v.008c0 3.27.69 6.382 1.935 9.22l-1.62 1.62a.75.75 0 0 0 1.06 1.06l1.62-1.62a20.23 20.23 0 0 0 9.22 1.935h.008a.75.75 0 0 0 .75-.745v-.005a.75.75 0 0 0-.75-.75h-.008A18.73 18.73 0 0 1 12 20.25l2.16-2.16a.75.75 0 0 1 1.06 1.06l-2.16 2.16c2.601 1.138 5.438 1.768 8.416 1.768h.01a.75.75 0 0 0 0-1.5h-.01a18.73 18.73 0 0 1-8.356-1.972l2.085-2.085a.75.75 0 0 1 1.06 1.06l-2.085 2.085c2.36-1.12 4.504-2.67 6.32-4.56l-.45-.45a1.5 1.5 0 0 0-2.12 0l-1.575 1.575a.75.75 0 0 1-1.06-1.06l1.575-1.575a3 3 0 0 1 4.242 0l.45.45c1.89-1.816 3.44-3.96 4.56-6.32l-2.085 2.085a.75.75 0 0 1-1.06-1.06l2.085-2.085A18.73 18.73 0 0 1 21.75 12v.01a.75.75 0 0 0 1.5 0V12a20.23 20.23 0 0 0-1.935-9.22l1.62-1.62a.75.75 0 0 0-1.06-1.06l-1.62 1.62A20.23 20.23 0 0 0 12 1.5h-.008a.75.75 0 0 0-.75.75v.008ZM5.065 16.416c-1.138-2.601-1.768-5.438-1.768-8.416v-.01a.75.75 0 0 1 1.5 0v.01c0 2.723.57 5.324 1.618 7.71l-1.35 1.35a.75.75 0 0 1-1.06-1.06l1.35-1.35Z" clipRule="evenodd" />
-            </svg>
-          </div>
+              <div className="w-20 h-20 bg-gradient-to-tr from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/20 mb-6">
+                <img src="/favicon.png" alt="Voice Pixels" className="w-12 h-12 invert" />
+              </div>
               <h1 className="text-3xl font-bold font-display mb-2 flex items-center gap-3 justify-center">
-                <img src="/favicon.png" alt="Voice Pixels" className="w-10 h-10 invert" />
                 Voice Pixels <span className="text-blue-400">Pro</span>
               </h1>
               <p className="text-gray-400 text-sm">Enter your Gemini API key to begin creating.</p>
