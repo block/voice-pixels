@@ -1,0 +1,7 @@
+{
+  "name": "Voice Pixels",
+  "description": "A voice-controlled image editor powered by Gemini Nano (Flash Image) and Gemini Live.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
