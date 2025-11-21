@@ -770,7 +770,7 @@ const App: React.FC = () => {
             </svg>
           </div>
               <h1 className="text-3xl font-bold font-display mb-2 flex items-center gap-3 justify-center">
-                <img src="/favicon.png" alt="Voice Pixels" className="w-10 h-10" />
+                <img src="/favicon.png" alt="Voice Pixels" className="w-10 h-10 invert" />
                 Voice Pixels <span className="text-blue-400">Pro</span>
               </h1>
               <p className="text-gray-400 text-sm">Enter your Gemini API key to begin creating.</p>
@@ -835,14 +835,14 @@ const App: React.FC = () => {
           {/* Center: Logo */}
           <div className="pointer-events-auto flex flex-col items-center flex-1">
             <h1 className="text-xl font-bold font-display tracking-tight flex items-center gap-2">
-              <img src="/favicon.png" alt="Voice Pixels" className="w-6 h-6" />
+              <img src="/favicon.png" alt="Voice Pixels" className="w-6 h-6 invert" />
               Voice Pixels 
               <span className="text-[10px] font-mono font-normal bg-white/10 px-1.5 py-0.5 rounded text-gray-300">BETA</span>
-            </h1>
+        </h1>
             <div className="flex items-center gap-2 mt-1">
               <div className={`w-1.5 h-1.5 rounded-full ${appState === AppState.IDLE ? 'bg-gray-500' : appState === AppState.ERROR ? 'bg-red-500' : 'bg-green-400 animate-pulse'}`} />
               <span className="text-[10px] font-mono uppercase text-gray-500 tracking-widest">{appState}</span>
-            </div>
+        </div>
           </div>
 
           {/* Right: Logs + Settings */}
